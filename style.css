@@ -1,0 +1,11 @@
+body 
+{
+	font: 11pt "Prestige Elite", monospace;
+	line-height: 1.3;
+	color: gray;
+}
+
+p
+{
+	padding: 20px;
+}
