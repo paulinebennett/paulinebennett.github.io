@@ -5,7 +5,11 @@ body
 	color: gray;
 }
 
-p
-{
-	padding: 20px;
+svg *{
+    fill: none;
+    stroke: black;
+}
+
+*{
+	padding:20px;
 }
