@@ -23,23 +23,24 @@ function getCoordinates(radius, hand) {
 	console.log("Minutes " + date.getMinutes().toString());
 	console.log("seconds " + date.getSeconds().toString());
 	
-	
 	if (hand == "second") {
 		var degsPastNoon = date.getSeconds() * degSecHand;
-	} else if (hand == "minute") {
+	} 
+	else if (hand == "minute") {
 		var degsPastNoon =  date.getMinutes() * secPerMin * degMinHand + 
 							date.getSeconds() * degMinHand;
-	} else { //hand == "hour"
+	} 
+	else { //hand == "hour"
 		var hours = date.getHours();
-		if (hours > 12) { hours -= 12 }; 
+		if (hours >= 12) { hours -= 12 }; 
 		var degsPastNoon =  hours * secPerHour * degHourHand +
 		                    date.getMinutes() * secPerMin * degHourHand + 
 							date.getSeconds() * degHourHand;
 	}
 	
-	if (degsPastNoon < 90) {
+	if (degsPastNoon <= 90) {
 		var deg = 90 - degsPastNoon;
-	} else { //degsPastNoon >= 90
+	} else { //degsPastNoon > 90
 	    var deg = 360 - degsPastNoon + 90;
 	}
 	
@@ -69,29 +70,54 @@ function getCoordinates(radius, hand) {
 	 * r * sin(deg) = y from centre
 	 * 
 	 * (centre is 200,200)
-	 *
-	 *
+	 * -note the difference in coordinates
+	 *   (0,0).________     (-200,200).    
+	 *        |                            |
+	 *        |                       _____|_____
+	 *        |                            |
+	 *        |                            |
 	 */
 	
 	//convert to radians for cos and sin functions
-	var rad = deg * (Math.PI / 180);
-	console.log("radians: " + rad.toString())
+	//var rad = deg * (Math.PI / 180);
+	//console.log("radians: " + rad.toString())
 	
-	if (deg <= 90) { //first
+	if (deg < 90) { 12-3
+		console.log("first");
+	    var rad = deg * (Math.PI / 180);
 		var cos = Math.cos(rad);
 		var sin = Math.sin(rad);
-	} else if (deg <= 180) { //second
-		var cos = -Math.cos(rad);
-		var sin = Math.sin(rad);
-	} else if (deg <= 270) { //third
-		var cos = -Math.cos(rad);
-		var sin = -Math.sin(rad);
-	} else { //fourth
-		var cos = Math.cos(rad);
-		var sin = -Math.sin(rad);
+		
+		var x = radius * cos + centre;
+	    var y = centre - radius * sin;
 	}
-	var x = radius * cos + centre;
-	var y = radius * sin + centre;			//coordinates need work (+ or - centre?)
+	else if (deg < 180) { // 9- 12
+		console.log("second");
+	    var rad = (180 - deg) * (Math.PI / 180);
+		var cos = -Math.cos(rad);
+		var sin = Math.sin(rad);
+		
+		var x = radius * cos + centre;
+	    var y = centre - radius * sin;
+	}
+	else if (deg < 270) { // 6-9
+		console.log("third");
+	    var rad = (270 - deg) * (Math.PI / 180);
+		var cos = -Math.cos(rad);
+		var sin = -Math.sin(rad);
+		
+		var x = radius * sin + centre;
+		var y = centre - radius * cos;
+	}
+	else { // 3-6
+	    console.log("fourth");
+	    var rad = (360 - deg) * (Math.PI / 180);
+		var cos = Math.cos(rad);
+		var sin = -Math.sin(rad);
+		
+		var x = radius * cos + centre;
+	    var y = centre - radius * sin;
+	}
 	
 	console.log("coords: x: " + x.toString() + " y:" + y.toString());
 	
