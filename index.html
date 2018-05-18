@@ -3,47 +3,59 @@
 	<head>
 		<meta charset="utf-8"/>
 		<link href="style.css" rel="stylesheet">
+		<link href="sidebar.css" rel="stylesheet">
 		<title>Welcome!</title>
-		<script src="main.js"></script>
+		<script src="clock.js"></script>
 	</head>
 	<body onLoad="startTime()">
-		<svg = height="400" width="500">
-			<circle cx="200" cy="200" r="200" fill="none"/>
-			<line id="second" x1="200" y1="200" x2="200" y2="25">
-				<animateTransform attributeName="transform"
-								  attributeType="XML"
-								  type="rotate"
-								  from="0 200 200"
-								  to="360 200 200"
-								  dur="60s"
-								  repeatCount="indefinite"/>
-			</line>
-			<line id="minute" x1="200" y1="200" x2="200" y2="45">
-				<animateTransform attributeName="transform"
-								  attributeType="XML"
-								  type="rotate"
-								  from="0 200 200"
-								  to="360 200 200"
-								  dur="3600s"
-								  repeatCount="indefinite"/>
-			</line>
-			<line id="hour" x1="200" y1="200" x2="200" y2="100">
-				<animateTransform attributeName="transform"
-								  attributeType="XML"
-								  type="rotate"
-								  from="0 200 200"
-								  to="360 200 200"
-								  dur="43200s"
-								  repeatCount="indefinite"/>
-			</line>
-		</svg>
+		<div class="sidebar">
+			<p>
+			<b>Home</b><br>
+			<a href="newpage.html">Resume</a><br>
+			<a href="newpage.html">Animations</a><br>
+			<a href="newpage.html">Links</a><br>
+			</p>
+		</div>
+		<div class="content">
+			<svg = height="425" width="425">
+				<! Clock Base>
+				<circle cx="200" cy="200" r="195" fill="none"/>
+				<! Clock Hands>
+				<line id="second" x1="200" y1="200" x2="200" y2="25">
+					<animateTransform attributeName="transform"
+									  attributeType="XML"
+									  type="rotate"
+									  from="0 200 200"
+									  to="360 200 200"
+									  dur="60s"
+									  repeatCount="indefinite"/>
+				</line>
+				<line id="minute" x1="200" y1="200" x2="200" y2="45">
+					<animateTransform attributeName="transform"
+									  attributeType="XML"
+									  type="rotate"
+									  from="0 200 200"
+									  to="360 200 200"
+									  dur="3600s"
+									  repeatCount="indefinite"/>
+				</line>
+				<line id="hour" x1="200" y1="200" x2="200" y2="100">
+					<animateTransform attributeName="transform"
+									  attributeType="XML"
+									  type="rotate"
+									  from="0 200 200"
+									  to="360 200 200"
+									  dur="43200s"
+									  repeatCount="indefinite"/>
+				</line>
+			</svg>
 		
-		<p>
-		Pauline Bennett<br>
-		Bachelor of Computer Science (2014-present)<br>
-		Queen's University<br>
-		Canada
-		</p>
-		
+			<p>
+			Pauline Bennett<br>
+			Bachelor of Computer Science (2014-present)<br>
+			Queen's University<br>
+			Canada
+			</p>
+		</div>
 	</body>
 </html>

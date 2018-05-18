@@ -1,0 +1,29 @@
+div.sidebar {
+	top: 0;
+	left: 0;
+    position: fixed;
+	width: 125px;
+	height: 100%;
+	background: gray;
+	font-size: 13pt;
+	color: white;
+	line-height: 2;
+}
+
+div.sidebar p {
+	margin-left: 10px;
+}
+
+div.content {
+	margin-left: 15%;
+}
+
+a:link {
+    color: white;
+	text-decoration: none;
+}
+
+a:visited {
+    color: white;
+	text-decoration: none;
+}
