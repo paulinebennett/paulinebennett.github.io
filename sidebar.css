@@ -14,16 +14,24 @@ div.sidebar p {
 	margin-left: 10px;
 }
 
+div.sidebar a:link {
+	color:white
+}
+
+div.sidebar a:visited {
+    color: white;
+}
+
 div.content {
 	margin-left: 15%;
+	height: 100vh;
 }
 
-a:link {
-    color: white;
-	text-decoration: none;
+div.content a:link {
+    color: gray;
 }
 
-a:visited {
-    color: white;
-	text-decoration: none;
-}
+div.content a:visited {
+    color: gray;
+}	
+
